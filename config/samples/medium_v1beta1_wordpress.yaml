@@ -1,0 +1,20 @@
+apiVersion: medium.example.org/v1beta1
+kind: Wordpress
+metadata:
+  labels:
+    app: wordpress
+  name: wordpress-sample
+spec:
+  wordpress:
+    storage : standard
+    image: wordpress:4.8-apache
+    network:
+    type: nodeport
+      port: 80
+  mysql:
+    storage : standard
+    image: mysql:5.6
+    password: password
+    database: wordpress
+    user: wordpress
+    
